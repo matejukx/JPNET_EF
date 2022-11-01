@@ -3,7 +3,7 @@ namespace JPNET_EF.Abstractions.Entity;
 public interface IOrder
 {
     public int Id { get; set; }
-    public Client Client { get; set; }
+    public Client? Client { get; set; }
     
     public List<OrderedItem> Items { get; set; }
 

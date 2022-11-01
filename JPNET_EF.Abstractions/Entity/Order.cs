@@ -10,12 +10,16 @@ public class Order : IOrder
     [ForeignKey("Client_Id")]
     public int ClientId { get; set; }
     
-    public Client Client { get; set; }
+    public Client? Client { get; set; }
     
     [InverseProperty("Order")]
     public List<OrderedItem> Items { get; set; }
     
     public bool IsFinished { get; set; }
+
+    [NotMapped]
+    [JsonInclude]
+    public bool IsInternet = false;
     
     [JsonInclude]
     public double? TotalPrice

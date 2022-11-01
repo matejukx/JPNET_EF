@@ -120,11 +120,20 @@ public class ClientController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Client>> PostClient([FromBody] ClientResource clientResource)
     {
-        var client = _mapper.Map<Client>(clientResource);
-        _context.Clients.Add(client);
-        await _context.SaveChangesAsync();
-    
-        return CreatedAtAction("GetClient", new { id = client.Id }, client);
+        if (string.IsNullOrEmpty(clientResource.IpAddress))
+        {
+            var client = _mapper.Map<Client>(clientResource);
+            _context.Clients.Add(client);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("GetClient", new { id = client.Id }, client);
+        }
+        else
+        {
+            var client = _mapper.Map<InternetClient>(clientResource);
+            _context.InternetClients.Add(client);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction("GetClient", new { id = client.Id }, client);
+        }
     }
     
     [HttpDelete("{id}")]

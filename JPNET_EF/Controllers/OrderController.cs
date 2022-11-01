@@ -27,7 +27,46 @@ public class OrderController : ControllerBase
             .Include(o => o.Items)
             .ThenInclude(oi => oi.Item)
             .ToList();
-            return Ok(orders);
+        // if any of the orders client is referenceable as InternetClient then replace it with InternetClient
+        foreach (var order in orders)
+        {
+            if (!string.IsNullOrEmpty((order as InternetOrder)?.IpAddress))
+            {
+                order.IsInternet = true;
+            }
+        }
+        return Ok(orders);
+    }
+    
+    [HttpPost("/finish/{id}")]
+    public IActionResult Finish(int id)
+    {
+        var order = _context.Orders
+            .Include(o => o.Items)
+            .ThenInclude(oi => oi.Item)
+            .FirstOrDefault(o => o.Id == id);
+        if (order == null)
+        {
+            return NotFound();
+        }
+
+        foreach (var orderItem in order.Items)
+        {
+            var item = _context.Items.FirstOrDefault(i => i.Id == orderItem.ItemId);
+            if (item == null)
+            {
+                return NotFound();
+            }
+            item.Quantity -= orderItem.Quantity;
+            if (item.Quantity < 0)
+            {
+                return BadRequest("Not enough items in stock");
+            }
+        }
+
+        order.IsFinished = true;
+        _context.SaveChanges();
+        return Ok();
     }
     
     [HttpPost]
@@ -36,32 +75,67 @@ public class OrderController : ControllerBase
        
         try
         {
-            var order = _mapper.Map<Order>(orderResource);
-            await _context.Orders.AddAsync(order);
+            if (!orderResource.IsInternet) return await AddOrder(orderResource);
+            var ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+            return await AddInternetOrder(orderResource, ipAddress);
 
-            var orderItems = 
-                orderResource.Items
-                    .GroupBy(i => i.Id)
-                    .Select(g =>
-                new OrderedItem
-                {
-                    ItemId = g.First().Id,
-                    Quantity = g.Count(),
-                    OrderId = order.Id
-                }).ToList();
-            foreach (var orderedItem in orderItems)
-            {
-                await _context.OrderedItems.AddAsync(orderedItem);
-            }
-            
-            await _context.SaveChangesAsync();
-            return Ok(order);
         }
         catch (Exception ex)
         {
             return StatusCode(503, ex.Message);
         }
        
+    }
+
+    private async Task<ObjectResult> AddOrder(OrderResource orderResource)
+    {
+        
+        var order = _mapper.Map<Order>(orderResource);
+        await _context.Orders.AddAsync(order);
+
+        var orderItems = 
+            orderResource.Items
+                .GroupBy(i => i.Id)
+                .Select(g =>
+                    new OrderedItem
+                    {
+                        ItemId = g.First().Id,
+                        Quantity = 0,
+                        OrderId = order.Id
+                    }).ToList();
+        foreach (var orderedItem in orderItems)
+        {
+            orderedItem.Quantity = orderResource.Items.Count(i => i.Id == orderedItem.ItemId);
+            await _context.OrderedItems.AddAsync(orderedItem);
+        }
+            
+        await _context.SaveChangesAsync();
+        return Ok(order);
+    }
+    
+    private async Task<ObjectResult> AddInternetOrder(OrderResource orderResource, string IpAddress)
+    {
+        var order = _mapper.Map<InternetOrder>(orderResource);
+        order.IpAddress = IpAddress;
+        await _context.Orders.AddAsync(order);
+
+        var orderItems = 
+            orderResource.Items
+                .GroupBy(i => i.Id)
+                .Select(g =>
+                    new OrderedItem
+                    {
+                        ItemId = g.First().Id,
+                        Quantity = g.Count(),
+                        OrderId = order.Id
+                    }).ToList();
+        foreach (var orderedItem in orderItems)
+        {
+            await _context.OrderedItems.AddAsync(orderedItem);
+        }
+            
+        await _context.SaveChangesAsync();
+        return Ok(order);
     }
     
 }
