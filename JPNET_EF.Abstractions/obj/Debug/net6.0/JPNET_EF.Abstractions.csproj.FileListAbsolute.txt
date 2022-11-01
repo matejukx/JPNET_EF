@@ -1,0 +1,12 @@
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/bin/Debug/net6.0/JPNET_EF.Abstractions.deps.json
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/bin/Debug/net6.0/JPNET_EF.Abstractions.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/bin/Debug/net6.0/ref/JPNET_EF.Abstractions.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/bin/Debug/net6.0/JPNET_EF.Abstractions.pdb
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.csproj.AssemblyReference.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.AssemblyInfoInputs.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.AssemblyInfo.cs
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.csproj.CoreCompileInputs.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/ref/JPNET_EF.Abstractions.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Abstractions/obj/Debug/net6.0/JPNET_EF.Abstractions.pdb

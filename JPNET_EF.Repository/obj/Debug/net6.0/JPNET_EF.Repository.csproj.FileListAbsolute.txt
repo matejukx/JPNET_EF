@@ -1,0 +1,15 @@
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/JPNET_EF.Repository.deps.json
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/JPNET_EF.Repository.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/ref/JPNET_EF.Repository.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/JPNET_EF.Repository.pdb
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/JPNET_EF.Abstractions.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/bin/Debug/net6.0/JPNET_EF.Abstractions.pdb
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.csproj.AssemblyReference.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.AssemblyInfoInputs.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.AssemblyInfo.cs
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.csproj.CoreCompileInputs.cache
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.csproj.CopyComplete
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/ref/JPNET_EF.Repository.dll
+/Users/mmatejuk/studia/jpnet/ef/JPNET_EF/JPNET_EF.Repository/obj/Debug/net6.0/JPNET_EF.Repository.pdb
